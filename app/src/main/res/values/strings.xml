@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">City Discovery</string>
+    <string name="title_activity_detail_view">Map</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_detailed_maps">Map</string>
+    <string name="map_key" translatable="false">AIzaSyCgNqFvhXEyV7jsBTVZfWRH9WJQOovL87o</string>
+</resources>
