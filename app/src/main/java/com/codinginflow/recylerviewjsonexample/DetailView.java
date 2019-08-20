@@ -78,11 +78,10 @@ public class DetailView extends FragmentActivity implements OnMapReadyCallback {
         ImageView detailImageView = findViewById(R.id.image_detail);
         TextView nameView = findViewById(R.id.name_detail);
         TextView rateView = findViewById(R.id.rate_detail);
-        TextView catView = findViewById(R.id.category_name);
         Button button = findViewById(R.id.route_button);
 
         callDirections(originLat, originLng);
-        setValues(imageURL,detailImageView,nameView,creator,rateView,likes,catView,cat);
+        setValues(imageURL,detailImageView,nameView,creator,rateView,likes);
 
         Log.d("IMAGE", imageURL);
 
@@ -136,12 +135,11 @@ public class DetailView extends FragmentActivity implements OnMapReadyCallback {
         mRequestQueue.add(request);
     }
 
-    void setValues(String imageURL, ImageView detailImageView, TextView nameView, String creator, TextView rateView, String likes, TextView catView, String cat){
+    void setValues(String imageURL, ImageView detailImageView, TextView nameView, String creator, TextView rateView, String likes){
 
         Picasso.get().load(imageURL).fit().centerCrop().into(detailImageView);
         nameView.setText(creator);
         rateView.setText(likes);
-        catView.setText(cat);
 
     }
 
