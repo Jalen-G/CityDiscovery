@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -70,6 +71,8 @@ public class DetailView extends FragmentActivity implements OnMapReadyCallback {
         String lng = intent.getStringExtra(EXTRA_LNG);
         String cat = intent.getStringExtra(EXTRA_CAT);
 
+        float ratingFinal = Float.parseFloat(likes);
+
         double latD = Double.parseDouble(lat);
         double lngD = Double.parseDouble(lng);
 
@@ -77,12 +80,11 @@ public class DetailView extends FragmentActivity implements OnMapReadyCallback {
 
         ImageView detailImageView = findViewById(R.id.image_detail);
         TextView nameView = findViewById(R.id.name_detail);
-        TextView rateView = findViewById(R.id.rate_detail);
-        TextView catView = findViewById(R.id.category_name);
         Button button = findViewById(R.id.route_button);
+        RatingBar rateView = findViewById(R.id.ratingBar);
 
         callDirections(originLat, originLng);
-        setValues(imageURL,detailImageView,nameView,creator,rateView,likes,catView,cat);
+        setValues(imageURL,detailImageView,nameView,creator,rateView,ratingFinal);
 
         Log.d("IMAGE", imageURL);
 
@@ -136,12 +138,11 @@ public class DetailView extends FragmentActivity implements OnMapReadyCallback {
         mRequestQueue.add(request);
     }
 
-    void setValues(String imageURL, ImageView detailImageView, TextView nameView, String creator, TextView rateView, String likes, TextView catView, String cat){
+    void setValues(String imageURL, ImageView detailImageView, TextView nameView, String creator, RatingBar rateView, float rating){
 
         Picasso.get().load(imageURL).fit().centerCrop().into(detailImageView);
         nameView.setText(creator);
-        rateView.setText(likes);
-        catView.setText(cat);
+        rateView.setRating(rating);
 
     }
 
