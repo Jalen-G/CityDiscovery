@@ -250,9 +250,7 @@ public class MainActivity extends AppCompatActivity implements ExampleAdapter.On
                                 }
                             } else {
                                 if (mExampleList.isEmpty()){
-                                    lat = 34.720153599999996;
-                                    lng = -87.7273088;
-                                    getIDs(34.720153599999996, -87.7273088);
+                                   Log.D("Location", "Unable to get location")
                                 } else {
                                     mExampleAdapter.setOnItemClick(MainActivity.this);
                                 }
